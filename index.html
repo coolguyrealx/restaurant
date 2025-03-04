@@ -15,6 +15,8 @@
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="header-order-btn">Order</a></li>
+                <li><a href="#" id="header-reservation-btn">Reserve</a></li>
             </ul>
         </nav>
     </header>
@@ -216,6 +218,8 @@
             const orderModal = document.getElementById('order-modal');
             const orderCloseBtn = orderModal.querySelector('.close-btn');
             const orderForm = document.getElementById('order-form');
+            const headerOrderBtn = document.getElementById('header-order-btn');
+            const headerReservationBtn = document.getElementById('header-reservation-btn');
 
             const reservationBtn = document.getElementById('make-reservation-btn');
             const reservationModal = document.getElementById('reservation-modal');
@@ -264,6 +268,16 @@
                 alert('Thank you for your reservation! We will confirm it shortly.');
                 reservationModal.style.display = 'none';
                 reservationForm.reset();
+            });
+             // Link header buttons to modals
+            headerOrderBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default anchor behavior
+                document.getElementById('order-modal').style.display = 'block';
+            });
+
+            headerReservationBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default anchor behavior
+                document.getElementById('reservation-modal').style.display = 'block';
             });
         });
     </script>
