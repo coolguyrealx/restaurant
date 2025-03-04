@@ -23,9 +23,57 @@
         <section id="home">
             <h1>Welcome to Delightful Bites</h1>
             <p>Serving delicious meals since 2024</p>
-            <button>View Our Menu</button>
+            <button id="order-online-btn">Order Online</button>
         </section>
 
+        <!-- Online Ordering Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Order Online</h2>
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-address">Delivery Address:</label>
+                        <input type="text" id="delivery-address" name="delivery-address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-type">Order Type:</label>
+                        <select id="order-type" name="order-type">
+                            <option value="delivery">Delivery</option>
+                            <option value="pickup">Pickup</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Items:</label>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <input type="checkbox" id="item1" name="items" value="Signature Pasta">
+                                <label for="item1">Signature Pasta - $14.99</label>
+                            </div>
+                            <div class="order-item">
+                                <input type="checkbox" id="item2" name="items" value="Grilled Salmon">
+                                <label for="item2">Grilled Salmon - $18.99</label>
+                            </div>
+                            <div class="order-item">
+                                <input type="checkbox" id="item3" name="items" value="Chocolate Lava Cake">
+                                <label for="item3">Chocolate Lava Cake - $9.99</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-order">Place Order</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Rest of the existing content remains the same -->
         <section id="menu">
             <h2>Our Menu</h2>
             
@@ -109,5 +157,34 @@
     <footer>
         <p>© 2024 Delightful Bites Restaurant. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Modal functionality
+        const orderBtn = document.getElementById('order-online-btn');
+        const modal = document.getElementById('order-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        const orderForm = document.getElementById('order-form');
+
+        orderBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your order! We will confirm it shortly.');
+            modal.style.display = 'none';
+            orderForm.reset();
+        });
+    </script>
 </body>
 </html>
