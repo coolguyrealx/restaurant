@@ -29,9 +29,51 @@
             </div>
         </section>
 
-        <!-- Online Ordering Modal (Previous code remains the same) -->
+        <!-- Online Ordering Modal -->
         <div id="order-modal" class="modal">
-            <!-- ... (previous order modal content) ... -->
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Order Online</h2>
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-address">Delivery Address:</label>
+                        <input type="text" id="delivery-address" name="delivery-address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-type">Order Type:</label>
+                        <select id="order-type" name="order-type">
+                            <option value="delivery">Delivery</option>
+                            <option value="pickup">Pickup</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Items:</label>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <input type="checkbox" id="item1" name="items" value="Signature Pasta">
+                                <label for="item1">Signature Pasta - $14.99</label>
+                            </div>
+                            <div class="order-item">
+                                <input type="checkbox" id="item2" name="items" value="Grilled Salmon">
+                                <label for="item2">Grilled Salmon - $18.99</label>
+                            </div>
+                            <div class="order-item">
+                                <input type="checkbox" id="item3" name="items" value="Chocolate Lava Cake">
+                                <label for="item3">Chocolate Lava Cake - $9.99</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-order">Place Order</button>
+                </form>
+            </div>
         </div>
 
         <!-- Reservation Modal -->
@@ -83,7 +125,84 @@
         </div>
 
         <!-- Rest of the existing content remains the same -->
-        <!-- (Previous menu, about, contact sections) -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+            
+            <div class="menu-category">
+                <h3>Entrees</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h4>Signature Pasta</h4>
+                        <p>Handmade pasta with our secret sauce</p>
+                        <span class="price">$14.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Crispy Calamari</h4>
+                        <p>Lightly battered, served with aioli</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Soup of the Day</h4>
+                        <p>Chef's daily special soup</p>
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Main Courses</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h4>Grilled Salmon</h4>
+                        <p>Fresh salmon with herb seasoning</p>
+                        <span class="price">$18.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Vegetarian Delight</h4>
+                        <p>Seasonal vegetables and quinoa</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Steak Frites</h4>
+                        <p>Grilled steak with french fries</p>
+                        <span class="price">$22.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Desserts</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <h4>Chocolate Lava Cake</h4>
+                        <p>Warm chocolate cake with vanilla ice cream</p>
+                        <span class="price">$9.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>New York Cheesecake</h4>
+                        <p>Classic cheesecake with berry compote</p>
+                        <span class="price">$8.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Seasonal Fruit Tart</h4>
+                        <p>Fresh fruit tart with pastry cream</p>
+                        <span class="price">$7.99</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Delightful Bites is a family-owned restaurant passionate about creating memorable dining experiences with fresh, locally-sourced ingredients.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>📞 (555) 123-4567</p>
+            <p>📍 123 Tasty Street, Foodville, USA</p>
+            <p>✉️ hello@delightfulbites.com</p>
+        </section>
     </main>
 
     <footer>
@@ -91,56 +210,61 @@
     </footer>
 
     <script>
-        // Online Ordering Modal Functionality (Previous code remains the same)
-        const orderBtn = document.getElementById('order-online-btn');
-        const orderModal = document.getElementById('order-modal');
-        const orderCloseBtn = orderModal.querySelector('.close-btn');
-        const orderForm = document.getElementById('order-form');
+        // Modal Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderBtn = document.getElementById('order-online-btn');
+            const orderModal = document.getElementById('order-modal');
+            const orderCloseBtn = orderModal.querySelector('.close-btn');
+            const orderForm = document.getElementById('order-form');
 
-        orderBtn.addEventListener('click', () => {
-            orderModal.style.display = 'block';
-        });
+            const reservationBtn = document.getElementById('make-reservation-btn');
+            const reservationModal = document.getElementById('reservation-modal');
+            const reservationCloseBtn = reservationModal.querySelector('.close-btn');
+            const reservationForm = document.getElementById('reservation-form');
 
-        orderCloseBtn.addEventListener('click', () => {
-            orderModal.style.display = 'none';
-        });
+            // Open/Close Order Modal
+            orderBtn.addEventListener('click', () => {
+                orderModal.style.display = 'block';
+            });
 
-        orderForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your order! We will confirm it shortly.');
-            orderModal.style.display = 'none';
-            orderForm.reset();
-        });
-
-        // Reservation Modal Functionality
-        const reservationBtn = document.getElementById('make-reservation-btn');
-        const reservationModal = document.getElementById('reservation-modal');
-        const reservationCloseBtn = reservationModal.querySelector('.close-btn');
-        const reservationForm = document.getElementById('reservation-form');
-
-        reservationBtn.addEventListener('click', () => {
-            reservationModal.style.display = 'block';
-        });
-
-        reservationCloseBtn.addEventListener('click', () => {
-            reservationModal.style.display = 'none';
-        });
-
-        // Close modal if clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === orderModal) {
+            orderCloseBtn.addEventListener('click', () => {
                 orderModal.style.display = 'none';
-            }
-            if (e.target === reservationModal) {
-                reservationModal.style.display = 'none';
-            }
-        });
+            });
 
-        reservationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your reservation! We will confirm it shortly.');
-            reservationModal.style.display = 'none';
-            reservationForm.reset();
+            // Open/Close Reservation Modal
+            reservationBtn.addEventListener('click', () => {
+                reservationModal.style.display = 'block';
+            });
+
+            reservationCloseBtn.addEventListener('click', () => {
+                reservationModal.style.display = 'none';
+            });
+
+            // Close modal if clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === orderModal) {
+                    orderModal.style.display = 'none';
+                }
+                if (e.target === reservationModal) {
+                    reservationModal.style.display = 'none';
+                }
+            });
+
+            // Order Form Submission
+            orderForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your order! We will confirm it shortly.');
+                orderModal.style.display = 'none';
+                orderForm.reset();
+            });
+
+            // Reservation Form Submission
+            reservationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your reservation! We will confirm it shortly.');
+                reservationModal.style.display = 'none';
+                reservationForm.reset();
+            });
         });
     </script>
 </body>
