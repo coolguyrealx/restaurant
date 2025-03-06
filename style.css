@@ -277,6 +277,11 @@ textarea {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.submit-reservation:hover {
+    background-color: #A0522D;
+}
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
@@ -328,7 +333,6 @@ textarea {
 img {
     max-width: 100%;
     height: auto;
-}
 }
 
 .submit-reservation:hover {
