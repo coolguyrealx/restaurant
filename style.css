@@ -330,12 +330,8 @@ textarea {
     }
 }
 
-/* Responsive Images (if you add any later) */
+/* Responsive Images */
 img {
     max-width: 100%;
     height: auto;
-}
-
-.submit-reservation:hover {
-    background-color: #A0522D;
 }
